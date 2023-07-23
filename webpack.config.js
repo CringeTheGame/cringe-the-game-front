@@ -28,20 +28,24 @@ module.exports = {
     mode,
     target,
     plugins, // Сокращенная запись plugins: plugins в ES6+
-    entry: './src/index.js',
+    entry: './src/index.ts',
     devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, 'build'),
         clean: true,
     },
-
     devServer: {
         hot: true,
     },
-
+    resolve: {
+        // Add '.ts' and '.tsx' as resolvable extensions.
+        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
+    },
     module: {
         rules: [
-            { test: /\.(html)$/, use: ['html-loader'] },
+            {
+                test: /\.(html)$/, use: ['html-loader']
+            },
             {
                 test: /\.(s[ac]|c)ss$/i, // /\.(le|c)ss$/i если вы используете less
                 use: [
@@ -80,6 +84,22 @@ module.exports = {
                         cacheDirectory: true,
                     },
                 },
+            },
+            // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
+            {
+                test: /\.tsx?$/,
+                loader: "ts-loader",
+                options: {
+                    compilerOptions: {
+                        noEmit: false,
+                    },
+                },
+
+            },
+            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+            {
+                test: /\.js$/,
+                loader: "source-map-loader"
             },
         ],
     }
