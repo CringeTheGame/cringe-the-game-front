@@ -12,11 +12,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@babel/core": "7.22.9",
     "@babel/preset-env": "7.22.9",
     "@babel/preset-react": "7.22.5",
     "@pmmmwh/react-refresh-webpack-plugin": "github:pmmmwh/react-refresh-webpack-plugin",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
     "babel-loader": "9.1.3",
     "cross-env": "7.0.3",
     "css-loader": "6.8.1",

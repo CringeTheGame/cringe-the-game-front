@@ -28,7 +28,7 @@ module.exports = {
     mode,
     target,
     plugins, // Сокращенная запись plugins: plugins в ES6+
-    entry: './src/index.ts',
+    entry: './src/App.tsx',
     devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, 'build'),
